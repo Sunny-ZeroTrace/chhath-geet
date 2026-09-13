@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #16100c;
+  color: #fdf6ec;
+}
+
+/* Custom scrollbar — subtle, matches the warm palette */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(233, 191, 79, 0.35);
+  border-radius: 999px;
+}
+
+/* Range input (progress/volume) styling shared across the player */
+input[type="range"].player-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(253, 246, 236, 0.2);
+  outline: none;
+}
+input[type="range"].player-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e9bf4f;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+input[type="range"].player-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"].player-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #e9bf4f;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Safe-area support for the persistent mobile player */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
