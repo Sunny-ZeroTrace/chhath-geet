@@ -87,7 +87,7 @@ export default function SongsTable({ initialSongs }: { initialSongs: Song[] }) {
                   : "rounded-full border border-gold-500/20 px-3 py-1 text-xs text-cream/60"
               }
             >
-              {mode[0].toUpperCase() + mode.slice(1)}
+              {mode.charAt(0).toUpperCase() + mode.slice(1)}
             </button>
           ))}
         </div>
