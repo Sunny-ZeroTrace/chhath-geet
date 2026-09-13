@@ -1,9 +1,14 @@
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import type { SiteSettingsRow } from "@/types/database";
 import SettingsForm from "./SettingsForm";
 
 export default async function AdminSettingsPage() {
   const supabase = createServerSupabaseClient();
-  const { data } = await supabase.from("site_settings").select("*").eq("id", 1).maybeSingle();
+  const { data } = await supabase
+    .from("site_settings")
+    .select("*")
+    .eq("id", 1)
+    .maybeSingle<SiteSettingsRow>();
 
   return (
     <div>
